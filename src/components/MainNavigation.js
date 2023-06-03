@@ -27,8 +27,7 @@ function MainNavigation({ onSetSearchResults  })  {
   };
 
   const handleLogout = () => {
-    
-    
+    localStorage.removeItem('accessToken');
     navigate('/');
   };
 
