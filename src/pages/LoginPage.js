@@ -31,6 +31,7 @@ const LoginPage = () => {
       );
       const token = response.data.data.acces_token;
       setAccesToken(token);
+      localStorage.setItem('accessToken', token);
       navigate('/products');
 
     } catch (error) {
