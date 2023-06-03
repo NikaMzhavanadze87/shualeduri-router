@@ -3,7 +3,7 @@ import React from 'react';
 function HomePage() {
   return (
     <>
-      <h1>Home page</h1>
+      <h1 style={{ textAlign: 'center', fontSize: 56 }}>Online Shop</h1>
     </>
   );
 }

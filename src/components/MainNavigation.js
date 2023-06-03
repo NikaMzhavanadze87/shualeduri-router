@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate} from 'react-router-dom';
 import classes from './MainNavigation.module.css';
-
 import axios from 'axios';
 
 function MainNavigation({ onSetSearchResults  })  {
   const location = useLocation();
+  const navigate = useNavigate();
   const isProductsPage = location.pathname === '/products';
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -24,6 +24,12 @@ function MainNavigation({ onSetSearchResults  })  {
     } catch (error) {
       console.error('Request error:', error);
     }
+  };
+
+  const handleLogout = () => {
+    
+    
+    navigate('/');
   };
 
   return (
@@ -48,9 +54,13 @@ function MainNavigation({ onSetSearchResults  })  {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className={({ isActive }) => (isActive ? classes.active : undefined)}>
-              Log In
-            </NavLink>
+          {isProductsPage ? (
+              <button onClick={handleLogout} className={classes['logout-button']}>Logout</button>
+            ) : (
+              <NavLink to="/login" className={({ isActive }) => (isActive ? classes.active : undefined)}>
+                Log In
+              </NavLink>
+            )}
           </li>
         </ul>
       </nav>

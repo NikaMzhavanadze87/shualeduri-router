@@ -19,6 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/products" element={<ProductsPage searchResults={searchResults} />} />
         <Route path="*" element={<ErrorPage />} />
+        
       </Routes>
     </BrowserRouter>
   );
