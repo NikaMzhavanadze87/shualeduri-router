@@ -12,7 +12,7 @@ function ProductsPage({ searchResults }) {
         {searchResults.map((product, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card className="product-card">
-              <CardMedia component="img" height="200" image={product.photos[0].large} />
+              <CardMedia component="img" height="200" image={product.photos[0].large} style={{ width: "100%", objectFit: 'cover' }}/>
               <CardContent className="card-content">
                 <Typography variant="h5" component="div">{product.title}</Typography>
                 <Typography variant="body1" className="description">{product.stripped_descr}</Typography>

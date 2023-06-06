@@ -7,9 +7,13 @@ import LoginPage from './pages/LoginPage';
 import MainNavigation from './components/MainNavigation';
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]); 
+  const [searchResults, setSearchResults] = useState(() => {
+    const storedResults = localStorage.getItem('searchResults');
+    return storedResults ? JSON.parse(storedResults) : [];
+  }); 
   const handleSetSearchResults = (results) => {
     setSearchResults(results);
+    localStorage.setItem('searchResults', JSON.stringify(results));
   };
   return (
     <BrowserRouter>
