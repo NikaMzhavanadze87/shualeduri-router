@@ -4,16 +4,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import axios from 'axios';
-import { Password } from '@mui/icons-material';
+// import { Password } from '@mui/icons-material';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error,setError] = useState('');
-  const [accesToken,setAccesToken] = useState('');
   const navigate = useNavigate();
 
-  
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
@@ -30,7 +28,6 @@ const LoginPage = () => {
         }
       );
       const token = response.data.data.acces_token;
-      setAccesToken(token);
       localStorage.setItem('accessToken', token);
       navigate('/products');
 

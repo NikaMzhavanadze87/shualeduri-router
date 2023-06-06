@@ -8,7 +8,7 @@ function MainNavigation({ onSetSearchResults  })  {
   const navigate = useNavigate();
   const isProductsPage = location.pathname === '/products';
   const [searchInput, setSearchInput] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+
 
   const handleSearch = async () => {
     try {
